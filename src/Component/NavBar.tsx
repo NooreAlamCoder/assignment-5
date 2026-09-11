@@ -2,7 +2,7 @@ import logo from "../assets/logo-text.png";
 
 const NavBar = () => {
   return (
-    <nav className="sticky top-0 z-50 backdrop-blur-md bg-base-100/90 navbar border-b border-gray-100 px-4 md:px-12 py-3">
+    <nav className="sticky top-0 z-50 backdrop-blur-md bg-base-100/90 navbar border-b border-gray-100 px-4 md:px-12 py-3 container mx-auto">
       {/* Start: NvBer Section */}
       <div className="navbar-start gap-2">
         {/* Mobile ar jonno */}

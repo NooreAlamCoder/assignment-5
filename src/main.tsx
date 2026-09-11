@@ -5,7 +5,8 @@ import NavBar from './Component/NavBar'
 import HeroSection from './Component/HeroSection'
 import Footer from './Component/Footer'
 import TechnologySection from './Component/TechnologySection'
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -14,5 +15,6 @@ createRoot(document.getElementById('root')!).render(
     <TechnologySection/>
     
     <Footer/>
+    <ToastContainer/>
   </StrictMode>,
 )

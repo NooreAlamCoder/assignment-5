@@ -13,7 +13,6 @@ const TechnologyCard = ({
 }: TechnologyCardProps) => {
   return (
     <div className="group flex min-h-[255px] flex-col rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
-
       {/* Icon + Badge */}
       <div className="flex items-start justify-between">
         <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-50">
@@ -61,10 +60,9 @@ const TechnologyCard = ({
       {/* Add to Stack */}
       <button
         onClick={() => onAdd(technology)}
-        disabled={isAdded}
         className={`mt-auto h-9 w-full rounded-lg text-xs font-semibold transition-all ${
           isAdded
-            ? "cursor-not-allowed bg-slate-100 text-slate-400"
+            ? "bg-slate-100 text-slate-400 hover:bg-slate-200"
             : "brand-gradient-bg text-white hover:opacity-95"
         }`}
       >

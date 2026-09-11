@@ -3,11 +3,13 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import NavBar from './Component/NavBar'
 import HeroSection from './Component/HeroSection'
+import Footer from './Component/Footer'
 
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <NavBar/>
     <HeroSection/>
+    <Footer/>
   </StrictMode>,
 )

@@ -26,12 +26,24 @@ const TechnologySection = () => {
 
   // Remove from Stack
   const handleRemoveFromStack = (id: string) => {
+    const technology = stack.find((item) => item.id === id);
+
     setStack((previousStack) => previousStack.filter((item) => item.id !== id));
+
+    if (technology) {
+      toast.info(`${technology.name} removed from your stack!`);
+    }
   };
 
   // Remove All
   const handleRemoveAll = () => {
+    if (stack.length === 0) {
+      return;
+    }
+
     setStack([]);
+
+    toast.info("All technologies removed from your stack!");
   };
 
   return (

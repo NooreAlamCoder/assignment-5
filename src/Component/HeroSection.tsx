@@ -2,11 +2,11 @@ import heroimage from "../assets/banner-stack.png";
 
 const HeroSection = () => {
   return (
-    <section className="bg-white py-10 md:py-16 lg:py-20 container mx-auto">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-14">
+    <section className="bg-white py-10 md:py-16 lg:py-10 container mx-auto">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-16 flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12">
         {/* Hero Section Text Content */}
         <div className="w-full lg:w-1/2 text-center lg:text-left">
-          <h2 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-tight sm:leading-[1.15]">
+          <h2 className="text-3xl sm:text-5xl lg:text-[50px] font-black tracking-tight text-slate-900 leading-tight sm:leading-[1.15]">
             Build Your Ideal <br />
             <span className="brand-gradient">Development Stack</span>
           </h2>

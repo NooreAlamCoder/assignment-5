@@ -1,6 +1,4 @@
-import { useState } from "react";
-import technologies from "../../technologies.json";
-
+import { useEffect, useState } from "react";
 import TechnologyCard from "./TechnologyCard";
 import StackSidebar from "./StackSidebar";
 
@@ -9,7 +7,24 @@ import { toast } from "react-toastify";
 
 const TechnologySection = () => {
   const [stack, setStack] = useState<Technology[]>([]);
+  const [technologies, setTechnologies] = useState<Technology[]>([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    const loadTechnologies = async () => {
+      try {
+        const response = await fetch("/technologies.json");
+        const data: Technology[] = await response.json();
 
+        setTechnologies(data);
+      } catch (error) {
+        console.error("Failed to load technologies:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadTechnologies();
+  }, []);
   // Add to Stack
   const handleAddToStack = (technology: Technology) => {
     const alreadyAdded = stack.some((item) => item.id === technology.id);
@@ -63,20 +78,26 @@ const TechnologySection = () => {
         {/* Main Layout */}
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_245px]">
           {/* Technology Cards */}
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {technologies.map((technology) => {
-              const isAdded = stack.some((item) => item.id === technology.id);
+          {loading ? (
+            <div className="flex min-h-[300px] items-center justify-center sm:col-span-2 lg:col-span-3">
+              <span className="loading loading-spinner loading-lg text-pink-500"></span>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {technologies.map((technology) => {
+                const isAdded = stack.some((item) => item.id === technology.id);
 
-              return (
-                <TechnologyCard
-                  key={technology.id}
-                  technology={technology}
-                  isAdded={isAdded}
-                  onAdd={handleAddToStack}
-                />
-              );
-            })}
-          </div>
+                return (
+                  <TechnologyCard
+                    key={technology.id}
+                    technology={technology}
+                    isAdded={isAdded}
+                    onAdd={handleAddToStack}
+                  />
+                );
+              })}
+            </div>
+          )}
 
           {/* Your Stack */}
           <StackSidebar

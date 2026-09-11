@@ -44,7 +44,6 @@ const TechnologyCard = ({
 
       {/* Category + Difficulty + Rating */}
       <div className="mb-4 flex items-center justify-between gap-2">
-
         <span className="rounded-md bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-600">
           {technology.category}
         </span>
@@ -57,24 +56,20 @@ const TechnologyCard = ({
           <span className="text-amber-400">★</span>
           {technology.rating}
         </span>
-
       </div>
 
-      {/* Add Button */}
+      {/* Add to Stack */}
       <button
         onClick={() => onAdd(technology)}
         disabled={isAdded}
         className={`mt-auto h-9 w-full rounded-lg text-xs font-semibold transition-all ${
           isAdded
             ? "cursor-not-allowed bg-slate-100 text-slate-400"
-            : "bg-slate-950 text-white hover:bg-slate-800"
+            : "brand-gradient-bg text-white hover:opacity-95"
         }`}
       >
-        {isAdded
-          ? "✓ Added to Stack"
-          : "Add to Stack"}
+        {isAdded ? "✓ Added to Stack" : "Add to Stack"}
       </button>
-
     </div>
   );
 };

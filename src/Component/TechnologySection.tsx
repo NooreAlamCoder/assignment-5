@@ -79,8 +79,10 @@ const TechnologySection = () => {
         <div className="grid grid-cols-1 gap-5 lg:grid-cols-[minmax(0,1fr)_245px]">
           {/* Technology Cards */}
           {loading ? (
-            <div className="flex min-h-[300px] items-center justify-center sm:col-span-2 lg:col-span-3">
+            <div className="flex min-h-[300px] flex-col items-center justify-center gap-3 sm:col-span-2 lg:col-span-3">
               <span className="loading loading-spinner loading-lg text-pink-500"></span>
+
+              <p className="text-sm font-medium text-slate-500">Loading...</p>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
